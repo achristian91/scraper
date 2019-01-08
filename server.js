@@ -1,8 +1,8 @@
-// Requires dependencies
+// Require dependencies
 var express = require("express");
-var expressHandlebars = require("express-handlebars")
-var bodyParser = require("body-parser")
-var mongoose = require("mongoose")
+var mongoose = require("mongoose");
+var expressHandlebars = require("express-handlebars");
+var bodyParser = require("body-parser");
 
 // Set up ports 
 var PORT = process.env.PORT || 3000;
@@ -13,6 +13,9 @@ var app = express();
 // Creates express router  
 var router = express.Router();
 
+//Requires router to pass object
+require("./config/routes")(router);
+
 // Makes requests go through middleware
 app.use(express.static(__dirname + "/public"));
 
@@ -20,6 +23,7 @@ app.use(express.static(__dirname + "/public"));
 app.engine("handlebars", expressHandlebars({
     defaultLayout: "main"
 }));
+app.set("view engine", "handlebars");
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -28,10 +32,10 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 //uses deployed db if not uses loacl mongoheadline 
-var db = process.env.MONGODB_URI || "mongodb//localhost/mongoHeadlines";
+var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 //connects mongoose to database
-mongoose.connect(db, function(error) {
+mongoose.connect(db, function (error) {
     //Logs any errors
     if (error) {
         console.log(error);
@@ -41,6 +45,6 @@ mongoose.connect(db, function(error) {
     }
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("Listening on port:" + PORT);
 });
