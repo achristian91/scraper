@@ -32,19 +32,10 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 //uses deployed db if not uses local mongo head line 
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 //connects mongoose to database
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });(db, function (error) {
-    //Logs any errors
-    
-    if (error) {
-        console.log(error);
-    }
-    else {
-        console.log("mongoose connection is successful");
-    }
-});
+
+mongoose.connect(MONGODB_URI);
 
 app.listen(PORT, function () {
     console.log("Listening on port:" + PORT);
