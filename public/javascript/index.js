@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     var articleContainer = $(".article-containter");
     $(document).on("click", ".btn.save", handleArticleSave);
     $(document).on("click", ".scrape-new", handleArticleScrape);
@@ -68,15 +69,15 @@ $(document).ready(function () {
         articleContainer.append(emptyAlert);
     }
 
-    function handleArticles() {
+    function handleArticleSave() {
 
-        var articlesToSave = $(this).parents(".panel").data();
-        articlesToSave.saved = true;
+        var articleToSave = $(this).parents(".panel").data();
+        articleToSave.saved = true;
 
         $.ajax({
             method: "PATCH",
             url: "/api/headlines",
-            data: articlesToSave
+            data: articleToSave
         })
             .then(function (data) {
 
