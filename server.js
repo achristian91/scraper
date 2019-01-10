@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(router);
 
-//uses deployed db if not uses local mongoheadline 
+//uses deployed db if not uses local mongo head line 
 var db = process.env.MONGODB_MAUVE_URI || "mongodb://localhost/mongoHeadlines";
 
 //connects mongoose to database
@@ -41,7 +41,7 @@ mongoose.connect(db, function (error) {
         console.log(error);
     }
     else {
-        console.log("mongoose connection is sucessful");
+        console.log("mongoose connection is successful");
     }
 });
 

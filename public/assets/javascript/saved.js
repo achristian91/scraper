@@ -124,7 +124,7 @@ $(document).ready(function () {
 
         $.get("/api/notes/" + currentArticle._id).then(function (data) {
             var modalText = [
-                "<div class='containter-fluid text-center'>",
+                "<div class='container-fluid text-center'>",
                 "<h4>Notes for Article: ",
                 currentArticle._id,
                 "</h4>",

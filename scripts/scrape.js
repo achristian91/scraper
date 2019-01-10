@@ -5,7 +5,7 @@ var scrape = function (cb) {
 
     request("http://www.nytimes.com", function (err, res, body) {
 
-        var $ = cherrio.load(body);
+        var $ = cheerio.load(body);
 
         var articles = [];
 
