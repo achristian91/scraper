@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 //uses deployed db if not uses local mongo head line 
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var db = process.env.MONGODB_MAUVE_URI || "mongodb://localhost/mongoHeadlines";
 
 //connects mongoose to database
 mongoose.connect("mongodb://localhost:27017/mongoHeadlines", { useNewUrlParser: true });(db, function (error) {
