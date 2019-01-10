@@ -7,11 +7,6 @@ html {
     margin-bottom: 80px;
     background-image: url("../images/paper.jpg");
   }
-  
-  .card a:not([href]):not([tabindex]).scrape-new {
-    color: #2196F3;
-  }
-  
   .footer {
     position: absolute;
     bottom: 0;
@@ -157,12 +152,6 @@ html {
     resize: none;
     width: 100%;
   }
-  
-  .bootbox-body .btn {
-    float: right;
-    margin: 5px;
-  }
-  
   .note.list-group-item .btn {
     position: relative;
     bottom: 10px;

@@ -35,8 +35,9 @@ app.use(router);
 var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 //connects mongoose to database
-mongoose.connect(db, function (error) {
+mongoose.connect("mongodb://localhost:27017/mongoHeadlines", { useNewUrlParser: true });(db, function (error) {
     //Logs any errors
+    
     if (error) {
         console.log(error);
     }
